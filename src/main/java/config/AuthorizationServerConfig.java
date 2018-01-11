@@ -24,16 +24,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthenticationManager authenticationManager;
 
-//    @Bean
-//    public JwtAccessTokenConverter accessTokenConverter() {
-//        return new JwtAccessTokenConverter();
-//    }
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        return new JwtAccessTokenConverter();
+    }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-                .authenticationManager(this.authenticationManager);
-                //.accessTokenConverter(accessTokenConverter());
+                .authenticationManager(this.authenticationManager)
+                .accessTokenConverter(accessTokenConverter());
     }
 
 
